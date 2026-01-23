@@ -1,0 +1,158 @@
+/* ================================
+   Base Reset
+================================ */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  font-size: 16px;
+}
+
+body {
+  font-family: system-ui, -apple-system, BlinkMacSystemFont,
+               "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+  background: #ffffff;
+  color: #1f2937;
+  line-height: 1.6;
+}
+
+/* ================================
+   Layout
+================================ */
+.container {
+  max-width: 860px;
+  margin: 0 auto;
+  padding: 24px 20px;
+}
+
+/* ================================
+   Navigation
+================================ */
+.nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 16px;
+}
+
+.brand {
+  font-size: 18px;
+  font-weight: 800;
+  text-decoration: none;
+  color: #111827;
+}
+
+.nav-links {
+  display: flex;
+  gap: 16px;
+  flex-wrap: wrap;
+}
+
+.nav-links a {
+  font-size: 14px;
+  font-weight: 700;
+  text-decoration: none;
+  color: #374151;
+}
+
+.nav-links a[aria-current="page"] {
+  color: #b45309;
+}
+
+/* ================================
+   Typography
+================================ */
+h1 {
+  font-size: 32px;
+  font-weight: 900;
+  margin-bottom: 8px;
+  color: #111827;
+}
+
+h2 {
+  font-size: 20px;
+  font-weight: 800;
+  margin-top: 28px;
+  margin-bottom: 8px;
+  color: #111827;
+}
+
+p {
+  font-size: 15px;
+  margin-top: 10px;
+  color: #374151;
+}
+
+.small {
+  font-size: 13px;
+  color: #6b7280;
+}
+
+.meta {
+  font-size: 13px;
+  color: #6b7280;
+  margin-bottom: 18px;
+}
+
+/* ================================
+   Links
+================================ */
+a {
+  color: #b45309;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+/* ================================
+   Sections
+================================ */
+hr {
+  border: none;
+  border-top: 1px solid #e5e7eb;
+  margin: 32px 0;
+}
+
+/* ================================
+   Footer
+================================ */
+.footer {
+  border-top: 1px solid #e5e7eb;
+  margin-top: 40px;
+  padding-top: 16px;
+  text-align: center;
+}
+
+/* ================================
+   Support / Utility
+================================ */
+ul {
+  margin-top: 10px;
+  margin-left: 20px;
+}
+
+li {
+  margin-bottom: 6px;
+}
+
+/* ================================
+   Mobile Tweaks
+================================ */
+@media (max-width: 600px) {
+  h1 {
+    font-size: 26px;
+  }
+
+  .nav {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .nav-links {
+    gap: 12px;
+  }
+}
