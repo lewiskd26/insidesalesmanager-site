@@ -1,23 +1,187 @@
-<!DOCTYPE html>
-<html>
-<head><title>Delete ISM Account</title></head>
-<body>
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Delete Account | SalesExchange by Inside Sales Manager</title>
+    <meta
+      name="description"
+      content="How to request deletion of your SalesExchange by Inside Sales Manager account and associated data."
+    />
+    <style>
+      :root {
+        --bg: #ffffff;
+        --text: #111827;
+        --muted: #6b7280;
+        --card: #f9fafb;
+        --border: #e5e7eb;
+        --link: #111827;
+        --accent: #f6c465;
+      }
+      body {
+        margin: 0;
+        font-family: system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, sans-serif;
+        background: var(--bg);
+        color: var(--text);
+        line-height: 1.55;
+      }
+      header {
+        border-bottom: 1px solid var(--border);
+        background: #fff;
+      }
+      .wrap {
+        max-width: 860px;
+        margin: 0 auto;
+        padding: 24px 16px;
+      }
+      .brand {
+        display: flex;
+        align-items: center;
+        gap: 12px;
+      }
+      .logo {
+        width: 40px;
+        height: 40px;
+        border-radius: 12px;
+        background: var(--accent);
+        display: inline-block;
+      }
+      h1 {
+        font-size: 22px;
+        margin: 0;
+      }
+      main .card {
+        background: var(--card);
+        border: 1px solid var(--border);
+        border-radius: 16px;
+        padding: 18px;
+        margin-top: 18px;
+      }
+      h2 {
+        font-size: 16px;
+        margin: 0 0 8px 0;
+      }
+      p {
+        margin: 8px 0;
+      }
+      ul {
+        margin: 8px 0 0 18px;
+      }
+      code {
+        background: #fff;
+        border: 1px solid var(--border);
+        padding: 2px 6px;
+        border-radius: 8px;
+      }
+      a {
+        color: var(--link);
+        text-decoration: underline;
+      }
+      .muted {
+        color: var(--muted);
+        font-size: 13px;
+      }
+      .pill {
+        display: inline-block;
+        padding: 6px 10px;
+        border-radius: 999px;
+        border: 1px solid var(--border);
+        background: #fff;
+        font-weight: 700;
+        font-size: 12px;
+      }
+      footer {
+        border-top: 1px solid var(--border);
+        margin-top: 28px;
+        padding-top: 18px;
+      }
+    </style>
+  </head>
 
-<h1>Delete Your Account</h1>
+  <body>
+    <header>
+      <div class="wrap">
+        <div class="brand">
+          <span class="logo" aria-hidden="true"></span>
+          <div>
+            <h1>Delete Account</h1>
+            <div class="muted">SalesExchange by Inside Sales Manager</div>
+          </div>
+        </div>
+      </div>
+    </header>
 
-<p>
-Send a request from your registered email to:
-</p>
+    <main>
+      <div class="wrap">
+        <p class="muted">
+          This page explains how to request deletion of your SalesExchange account and associated
+          data, as required by Google Play.
+        </p>
 
-<p>
-<a href="mailto:delete@insidesalesmanager.app">
-delete@insidesalesmanager.app
-</a>
-</p>
+        <div class="card">
+          <h2>How to request account deletion</h2>
+          <p>
+            Email <a href="mailto:support@insidesalesmanager.app">support@insidesalesmanager.app</a>
+            with the subject line:
+            <span class="pill">Account Deletion Request</span>
+          </p>
+          <p>Please include:</p>
+          <ul>
+            <li>The email address associated with your SalesExchange account</li>
+            <li>Your display name (if available)</li>
+          </ul>
+          <p class="muted">
+            We may ask for additional information to verify account ownership before deleting data.
+          </p>
+        </div>
 
-<p>Subject: Delete My ISM Account</p>
+        <div class="card">
+          <h2>What will be deleted</h2>
+          <p>After verification, we will delete the following data associated with your account:</p>
+          <ul>
+            <li>Account email address</li>
+            <li>Display name / profile information</li>
+            <li>Account identifiers used to operate the service</li>
+            <li>Associated activity records linked to your account</li>
+          </ul>
+        </div>
 
-<p>Requests processed within 5–7 business days.</p>
+        <div class="card">
+          <h2>Data retention</h2>
+          <p>
+            Certain records may be retained for up to <strong>30 days</strong> for:
+          </p>
+          <ul>
+            <li>Fraud prevention and security</li>
+            <li>Legal and regulatory compliance</li>
+            <li>Billing verification (if applicable)</li>
+          </ul>
+          <p class="muted">
+            After the retention period, remaining personal data is permanently deleted.
+          </p>
+        </div>
 
-</body>
+        <div class="card">
+          <h2>Related links</h2>
+          <p>
+            Privacy Policy:
+            <a href="https://insidesalesmanager.app/privacy">https://insidesalesmanager.app/privacy</a>
+          </p>
+          <p>
+            Support:
+            <a href="https://insidesalesmanager.app/support">https://insidesalesmanager.app/support</a>
+          </p>
+        </div>
+
+        <footer class="muted">
+          © <span id="year"></span> SalesExchange by Inside Sales Manager. All rights reserved.
+        </footer>
+      </div>
+    </main>
+
+    <script>
+      document.getElementById("year").textContent = new Date().getFullYear();
+    </script>
+  </body>
 </html>
+
