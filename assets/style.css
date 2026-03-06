@@ -1,158 +1,87 @@
-/* ================================
-   Base Reset
-================================ */
-* {
-  box-sizing: border-box;
-  margin: 0;
-  padding: 0;
+:root {
+  --bg: #081120;
+  --bg-soft: #0f172a;
+  --card: rgba(255, 255, 255, 0.08);
+  --card-border: rgba(255, 255, 255, 0.14);
+  --text: #f8fafc;
+  --muted: #cbd5e1;
+  --accent: #38bdf8;
+  --accent-dark: #2563eb;
 }
 
-html {
-  font-size: 16px;
+* {
+  box-sizing: border-box;
 }
 
 body {
-  font-family: system-ui, -apple-system, BlinkMacSystemFont,
-               "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
-  background: #ffffff;
-  color: #1f2937;
+  margin: 0;
+  font-family: Inter, Arial, sans-serif;
+  color: var(--text);
+  background:
+    radial-gradient(circle at top left, rgba(56,189,248,0.18), transparent 30%),
+    radial-gradient(circle at bottom right, rgba(34,197,94,0.12), transparent 25%),
+    linear-gradient(180deg, #020617 0%, #081120 45%, #0b1324 100%);
   line-height: 1.6;
 }
 
-/* ================================
-   Layout
-================================ */
-.container {
-  max-width: 860px;
-  margin: 0 auto;
-  padding: 24px 20px;
-}
-
-/* ================================
-   Navigation
-================================ */
-.nav {
+.page-shell {
+  min-height: 100vh;
   display: flex;
-  justify-content: space-between;
   align-items: center;
-  gap: 16px;
+  justify-content: center;
+  padding: 40px 20px;
 }
 
-.brand {
-  font-size: 18px;
-  font-weight: 800;
-  text-decoration: none;
-  color: #111827;
+.content-card {
+  width: min(820px, 100%);
+  background: var(--card);
+  border: 1px solid var(--card-border);
+  border-radius: 24px;
+  padding: 40px 32px;
+  backdrop-filter: blur(10px);
+  box-shadow: 0 20px 60px rgba(0,0,0,0.35);
 }
 
-.nav-links {
-  display: flex;
-  gap: 16px;
-  flex-wrap: wrap;
-}
-
-.nav-links a {
-  font-size: 14px;
-  font-weight: 700;
-  text-decoration: none;
-  color: #374151;
-}
-
-.nav-links a[aria-current="page"] {
-  color: #b45309;
-}
-
-/* ================================
-   Typography
-================================ */
 h1 {
-  font-size: 32px;
-  font-weight: 900;
-  margin-bottom: 8px;
-  color: #111827;
+  margin: 0 0 10px;
+  font-size: clamp(2.2rem, 5vw, 3.8rem);
+  line-height: 1.05;
 }
 
 h2 {
-  font-size: 20px;
-  font-weight: 800;
+  margin: 0 0 24px;
+  font-size: clamp(1.1rem, 2.5vw, 1.5rem);
+  font-weight: 600;
+  color: var(--accent);
+}
+
+h3 {
   margin-top: 28px;
-  margin-bottom: 8px;
-  color: #111827;
+  margin-bottom: 12px;
+  font-size: 1.25rem;
 }
 
-p {
-  font-size: 15px;
-  margin-top: 10px;
-  color: #374151;
+p,
+li {
+  color: var(--muted);
+  font-size: 1rem;
 }
 
-.small {
-  font-size: 13px;
-  color: #6b7280;
+ul {
+  padding-left: 22px;
 }
 
-.meta {
-  font-size: 13px;
-  color: #6b7280;
-  margin-bottom: 18px;
-}
-
-/* ================================
-   Links
-================================ */
 a {
-  color: #b45309;
+  color: var(--accent);
+  text-decoration: none;
+  font-weight: 600;
 }
 
 a:hover {
+  color: #7dd3fc;
   text-decoration: underline;
 }
 
-/* ================================
-   Sections
-================================ */
-hr {
-  border: none;
-  border-top: 1px solid #e5e7eb;
-  margin: 32px 0;
-}
-
-/* ================================
-   Footer
-================================ */
-.footer {
-  border-top: 1px solid #e5e7eb;
-  margin-top: 40px;
-  padding-top: 16px;
-  text-align: center;
-}
-
-/* ================================
-   Support / Utility
-================================ */
-ul {
-  margin-top: 10px;
-  margin-left: 20px;
-}
-
-li {
-  margin-bottom: 6px;
-}
-
-/* ================================
-   Mobile Tweaks
-================================ */
-@media (max-width: 600px) {
-  h1 {
-    font-size: 26px;
-  }
-
-  .nav {
-    flex-direction: column;
-    align-items: flex-start;
-  }
-
-  .nav-links {
-    gap: 12px;
-  }
+.page-links {
+  margin-top: 28px;
 }
