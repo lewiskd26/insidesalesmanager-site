@@ -4,9 +4,9 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Download SalesExchange | Inside Sales Manager</title>
-  <meta name="description" content="Download SalesExchange on the App Store. Browse commission-based sales opportunities, claim territories, and grow your income." />
+  <meta name="description" content="Download SalesExchange on iPhone and Android. Browse commission-based sales opportunities, claim territories, and grow your income." />
   <meta property="og:title" content="Download SalesExchange" />
-  <meta property="og:description" content="Browse real opportunities, claim territory-based deals, and earn commissions with SalesExchange." />
+  <meta property="og:description" content="Browse real opportunities, claim territory-based deals, and earn commissions with SalesExchange on iPhone and Android." />
   <meta property="og:type" content="website" />
   <meta property="og:url" content="https://insidesalesmanager.app/download" />
   <meta name="theme-color" content="#0f172a" />
@@ -93,6 +93,39 @@
       font-size: 0.95rem;
     }
 
+    .store-badges {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .store-badge {
+      display: inline-flex;
+      align-items: center;
+      line-height: 0;
+      transition: transform 0.2s ease, opacity 0.2s ease;
+    }
+
+    .store-badge:hover {
+      transform: translateY(-1px);
+      opacity: 0.96;
+    }
+
+    .store-badge img {
+      height: 56px;
+      width: auto;
+      display: block;
+    }
+
+    .store-badges--header img {
+      height: 40px;
+    }
+
+    .store-badges--cta img {
+      height: 52px;
+    }
+
     .btn {
       display: inline-flex;
       align-items: center;
@@ -163,6 +196,7 @@
       flex-wrap: wrap;
       gap: 14px;
       margin-bottom: 24px;
+      align-items: center;
     }
 
     .hero-note {
@@ -408,10 +442,14 @@
       .nav-links { display: none; }
       .hero { padding-top: 40px; }
       .stats { grid-template-columns: 1fr; }
-      .hero-actions { flex-direction: column; align-items: stretch; }
+      .hero-actions { flex-direction: column; align-items: flex-start; }
       .btn { width: 100%; }
       .screen { min-height: 560px; }
       .cta { padding: 26px; }
+      .store-badge img,
+      .store-badges--cta img {
+        height: 48px;
+      }
     }
   </style>
 </head>
@@ -428,7 +466,32 @@
       <nav class="nav-links">
         <a href="#features">Features</a>
         <a href="#download">Download</a>
-        <a href="https://apps.apple.com/us/app/id6758257596" class="btn btn-primary" target="_blank" rel="noopener">Download Now</a>
+        <div class="store-badges store-badges--header">
+          <a
+            class="store-badge"
+            href="https://apps.apple.com/us/app/id6758257596"
+            target="_blank"
+            rel="noopener"
+            aria-label="Download SalesExchange on the App Store"
+          >
+            <img
+              src="https://developer.apple.com/assets/elements/badges/download-on-the-app-store.svg"
+              alt="Download on the App Store"
+            />
+          </a>
+          <a
+            class="store-badge"
+            href="https://play.google.com/store/apps/details?id=com.lewiskd25.salesrepmarketplace"
+            target="_blank"
+            rel="noopener"
+            aria-label="Get SalesExchange on Google Play"
+          >
+            <img
+              src="https://play.google.com/intl/en_us/badges/static/images/badges/en_badge_web_generic.png"
+              alt="Get it on Google Play"
+            />
+          </a>
+        </div>
       </nav>
     </div>
   </header>
@@ -437,7 +500,7 @@
     <section class="hero">
       <div class="container hero-grid">
         <div>
-          <div class="eyebrow">Now live on the App Store</div>
+          <div class="eyebrow">Now available on iPhone and Android</div>
           <h1>Download SalesExchange and start closing more deals.</h1>
           <p>
             SalesExchange connects sales professionals with real commission-based opportunities.
@@ -445,11 +508,38 @@
           </p>
 
           <div class="hero-actions" id="download">
-            <a class="btn btn-primary" href="https://apps.apple.com/us/app/id6758257596" target="_blank" rel="noopener">Download on the App Store</a>
+            <div class="store-badges">
+              <a
+                class="store-badge"
+                href="https://apps.apple.com/us/app/id6758257596"
+                target="_blank"
+                rel="noopener"
+                aria-label="Download SalesExchange on the App Store"
+              >
+                <img
+                  src="https://developer.apple.com/assets/elements/badges/download-on-the-app-store.svg"
+                  alt="Download on the App Store"
+                />
+              </a>
+              <a
+                class="store-badge"
+                href="https://play.google.com/store/apps/details?id=com.lewiskd25.salesrepmarketplace"
+                target="_blank"
+                rel="noopener"
+                aria-label="Get SalesExchange on Google Play"
+              >
+                <img
+                  src="https://play.google.com/intl/en_us/badges/static/images/badges/en_badge_web_generic.png"
+                  alt="Get it on Google Play"
+                />
+              </a>
+            </div>
             <a class="btn btn-secondary" href="#features">See how it works</a>
           </div>
 
-          <div class="hero-note">Apple App ID: 6758257596</div>
+          <div class="hero-note">
+            Apple App ID: 6758257596 • Android available on Google Play
+          </div>
 
           <div class="stats">
             <div class="stat">
@@ -537,10 +627,33 @@
         <div class="cta">
           <div>
             <h3>Ready to get started?</h3>
-            <p>Download SalesExchange from the App Store and explore your next opportunity today.</p>
+            <p>Download SalesExchange on the App Store or Google Play and explore your next opportunity today.</p>
           </div>
-          <div>
-            <a class="btn btn-primary" href="https://apps.apple.com/us/app/id6758257596" target="_blank" rel="noopener">Get the App</a>
+          <div class="store-badges store-badges--cta">
+            <a
+              class="store-badge"
+              href="https://apps.apple.com/us/app/id6758257596"
+              target="_blank"
+              rel="noopener"
+              aria-label="Download SalesExchange on the App Store"
+            >
+              <img
+                src="https://developer.apple.com/assets/elements/badges/download-on-the-app-store.svg"
+                alt="Download on the App Store"
+              />
+            </a>
+            <a
+              class="store-badge"
+              href="https://play.google.com/store/apps/details?id=com.lewiskd25.salesrepmarketplace"
+              target="_blank"
+              rel="noopener"
+              aria-label="Get SalesExchange on Google Play"
+            >
+              <img
+                src="https://play.google.com/intl/en_us/badges/static/images/badges/en_badge_web_generic.png"
+                alt="Get it on Google Play"
+              />
+            </a>
           </div>
         </div>
       </div>
