@@ -2,42 +2,652 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>SalesExchange by Inside Sales Manager (ISM)</title>
-  <meta name="description" content="Turn Conversations into Commissions." />
+  <meta name="description" content="Turn Conversations into Commissions. Connect companies with motivated commission-only sales reps." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="/assets/style.css" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --ink: #0d0f11;
+      --ink-mid: #3a3f47;
+      --ink-light: #7a8290;
+      --surface: #f6f5f1;
+      --white: #ffffff;
+      --accent: #e8411a;
+      --accent-light: #fff0ec;
+      --accent-dark: #b52e0e;
+      --border: rgba(13,15,17,0.10);
+      --border-strong: rgba(13,15,17,0.20);
+      --font-display: 'Syne', sans-serif;
+      --font-body: 'DM Sans', sans-serif;
+      --radius: 12px;
+      --radius-lg: 20px;
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: var(--font-body);
+      background: var(--surface);
+      color: var(--ink);
+      line-height: 1.6;
+      overflow-x: hidden;
+    }
+
+    /* ── NAV ── */
+    nav {
+      position: fixed;
+      top: 0; left: 0; right: 0;
+      z-index: 100;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 0 5%;
+      height: 64px;
+      background: rgba(246,245,241,0.85);
+      backdrop-filter: blur(12px);
+      border-bottom: 0.5px solid var(--border);
+    }
+
+    .nav-logo {
+      font-family: var(--font-display);
+      font-weight: 800;
+      font-size: 16px;
+      letter-spacing: -0.02em;
+      color: var(--ink);
+      text-decoration: none;
+    }
+
+    .nav-logo span { color: var(--accent); }
+
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 32px;
+      list-style: none;
+    }
+
+    .nav-links a {
+      font-size: 14px;
+      font-weight: 400;
+      color: var(--ink-mid);
+      text-decoration: none;
+      transition: color 0.2s;
+    }
+
+    .nav-links a:hover { color: var(--ink); }
+
+    .nav-cta {
+      background: var(--ink) !important;
+      color: var(--white) !important;
+      padding: 8px 20px;
+      border-radius: 100px;
+      font-weight: 500 !important;
+      font-size: 13px !important;
+      transition: background 0.2s !important;
+    }
+
+    .nav-cta:hover { background: var(--accent) !important; }
+
+    /* ── HERO ── */
+    .hero {
+      min-height: 100vh;
+      padding: 120px 5% 80px;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 60px;
+      align-items: center;
+      max-width: 1280px;
+      margin: 0 auto;
+    }
+
+    .hero-eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      font-size: 12px;
+      font-weight: 500;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--accent);
+      background: var(--accent-light);
+      padding: 5px 14px;
+      border-radius: 100px;
+      margin-bottom: 24px;
+    }
+
+    .hero-eyebrow::before {
+      content: '';
+      width: 6px; height: 6px;
+      border-radius: 50%;
+      background: var(--accent);
+      display: inline-block;
+    }
+
+    .hero h1 {
+      font-family: var(--font-display);
+      font-size: clamp(40px, 5vw, 64px);
+      font-weight: 800;
+      line-height: 1.05;
+      letter-spacing: -0.03em;
+      color: var(--ink);
+      margin-bottom: 24px;
+    }
+
+    .hero h1 em {
+      font-style: normal;
+      color: var(--accent);
+      position: relative;
+    }
+
+    .hero-sub {
+      font-size: 18px;
+      font-weight: 300;
+      color: var(--ink-mid);
+      line-height: 1.65;
+      margin-bottom: 40px;
+      max-width: 480px;
+    }
+
+    .hero-actions {
+      display: flex;
+      gap: 14px;
+      flex-wrap: wrap;
+    }
+
+    .btn-primary {
+      background: var(--ink);
+      color: var(--white);
+      padding: 14px 28px;
+      border-radius: 100px;
+      font-size: 15px;
+      font-weight: 500;
+      text-decoration: none;
+      border: none;
+      cursor: pointer;
+      transition: background 0.2s, transform 0.15s;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .btn-primary:hover {
+      background: var(--accent);
+      transform: translateY(-1px);
+    }
+
+    .btn-secondary {
+      background: transparent;
+      color: var(--ink);
+      padding: 14px 28px;
+      border-radius: 100px;
+      font-size: 15px;
+      font-weight: 500;
+      text-decoration: none;
+      border: 1.5px solid var(--border-strong);
+      cursor: pointer;
+      transition: border-color 0.2s, transform 0.15s;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .btn-secondary:hover {
+      border-color: var(--ink);
+      transform: translateY(-1px);
+    }
+
+    /* ── VIDEO PANEL ── */
+    .hero-video-wrap {
+      position: relative;
+    }
+
+    .video-card {
+      position: relative;
+      background: var(--ink);
+      border-radius: var(--radius-lg);
+      overflow: hidden;
+      aspect-ratio: 16/9;
+      box-shadow: 0 32px 80px rgba(13,15,17,0.22), 0 8px 24px rgba(13,15,17,0.12);
+    }
+
+    .video-card video,
+    .video-card iframe {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+    }
+
+    /* Thumbnail/placeholder state */
+    .video-thumbnail {
+      position: absolute;
+      inset: 0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: linear-gradient(135deg, #1a1c20 0%, #0d0f11 100%);
+      cursor: pointer;
+      transition: opacity 0.3s;
+    }
+
+    .video-thumbnail.hidden { opacity: 0; pointer-events: none; }
+
+    .video-thumbnail-bg {
+      position: absolute;
+      inset: 0;
+      background:
+        radial-gradient(circle at 30% 50%, rgba(232,65,26,0.15) 0%, transparent 60%),
+        radial-gradient(circle at 80% 20%, rgba(232,65,26,0.08) 0%, transparent 50%);
+    }
+
+    .play-btn {
+      position: relative;
+      z-index: 2;
+      width: 72px; height: 72px;
+      background: var(--accent);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: transform 0.2s, background 0.2s;
+      box-shadow: 0 0 0 16px rgba(232,65,26,0.15);
+    }
+
+    .video-thumbnail:hover .play-btn {
+      transform: scale(1.08);
+      background: var(--accent-dark);
+    }
+
+    .play-btn svg {
+      width: 28px; height: 28px;
+      fill: white;
+      margin-left: 4px;
+    }
+
+    .video-label {
+      position: absolute;
+      bottom: 20px;
+      left: 20px;
+      z-index: 2;
+      color: rgba(255,255,255,0.7);
+      font-size: 12px;
+      font-weight: 500;
+      letter-spacing: 0.05em;
+      text-transform: uppercase;
+    }
+
+    /* Floating badge on video */
+    .video-badge {
+      position: absolute;
+      top: -16px;
+      right: 24px;
+      background: var(--accent);
+      color: white;
+      font-family: var(--font-display);
+      font-size: 12px;
+      font-weight: 700;
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
+      padding: 6px 16px;
+      border-radius: 100px;
+      z-index: 10;
+      box-shadow: 0 4px 16px rgba(232,65,26,0.4);
+    }
+
+    /* ── STATS STRIP ── */
+    .stats-strip {
+      border-top: 0.5px solid var(--border);
+      border-bottom: 0.5px solid var(--border);
+      background: var(--white);
+      padding: 28px 5%;
+    }
+
+    .stats-inner {
+      max-width: 1280px;
+      margin: 0 auto;
+      display: flex;
+      justify-content: space-around;
+      gap: 24px;
+      flex-wrap: wrap;
+    }
+
+    .stat-item {
+      text-align: center;
+    }
+
+    .stat-num {
+      font-family: var(--font-display);
+      font-size: 32px;
+      font-weight: 800;
+      color: var(--ink);
+      letter-spacing: -0.03em;
+      display: block;
+    }
+
+    .stat-num span { color: var(--accent); }
+
+    .stat-label {
+      font-size: 13px;
+      color: var(--ink-light);
+      font-weight: 400;
+      margin-top: 2px;
+    }
+
+    /* ── FOR SECTION ── */
+    .for-section {
+      padding: 100px 5%;
+      max-width: 1280px;
+      margin: 0 auto;
+    }
+
+    .section-eyebrow {
+      font-size: 12px;
+      font-weight: 500;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--ink-light);
+      margin-bottom: 16px;
+    }
+
+    .section-title {
+      font-family: var(--font-display);
+      font-size: clamp(28px, 3.5vw, 44px);
+      font-weight: 700;
+      letter-spacing: -0.025em;
+      color: var(--ink);
+      line-height: 1.1;
+      margin-bottom: 60px;
+    }
+
+    .for-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 24px;
+    }
+
+    .for-card {
+      background: var(--white);
+      border: 0.5px solid var(--border);
+      border-radius: var(--radius-lg);
+      padding: 40px;
+      transition: box-shadow 0.2s, transform 0.2s;
+    }
+
+    .for-card:hover {
+      box-shadow: 0 12px 40px rgba(13,15,17,0.08);
+      transform: translateY(-2px);
+    }
+
+    .for-card-tag {
+      display: inline-block;
+      font-size: 11px;
+      font-weight: 600;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      padding: 4px 12px;
+      border-radius: 100px;
+      margin-bottom: 24px;
+    }
+
+    .tag-reps {
+      background: #e8f4fd;
+      color: #1565c0;
+    }
+
+    .tag-companies {
+      background: var(--accent-light);
+      color: var(--accent-dark);
+    }
+
+    .for-card h3 {
+      font-family: var(--font-display);
+      font-size: 22px;
+      font-weight: 700;
+      color: var(--ink);
+      margin-bottom: 20px;
+      letter-spacing: -0.02em;
+    }
+
+    .for-card ul {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+    }
+
+    .for-card li {
+      font-size: 15px;
+      color: var(--ink-mid);
+      display: flex;
+      align-items: flex-start;
+      gap: 10px;
+      line-height: 1.5;
+    }
+
+    .for-card li::before {
+      content: '';
+      width: 18px; height: 18px;
+      min-width: 18px;
+      background: var(--accent);
+      border-radius: 50%;
+      margin-top: 2px;
+      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='white' stroke-width='2.5' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpolyline points='20 6 9 17 4 12'/%3E%3C/svg%3E");
+      background-size: 11px;
+      background-position: center;
+      background-repeat: no-repeat;
+    }
+
+    /* ── FOOTER ── */
+    footer {
+      border-top: 0.5px solid var(--border);
+      padding: 32px 5%;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 16px;
+    }
+
+    .footer-logo {
+      font-family: var(--font-display);
+      font-weight: 800;
+      font-size: 14px;
+      letter-spacing: -0.02em;
+      color: var(--ink);
+      text-decoration: none;
+    }
+
+    .footer-logo span { color: var(--accent); }
+
+    .footer-links {
+      display: flex;
+      gap: 24px;
+      list-style: none;
+      flex-wrap: wrap;
+    }
+
+    .footer-links a {
+      font-size: 13px;
+      color: var(--ink-light);
+      text-decoration: none;
+      transition: color 0.2s;
+    }
+
+    .footer-links a:hover { color: var(--ink); }
+
+    /* ── ANIMATIONS ── */
+    @keyframes fadeUp {
+      from { opacity: 0; transform: translateY(24px); }
+      to   { opacity: 1; transform: translateY(0); }
+    }
+
+    .hero-content > * {
+      opacity: 0;
+      animation: fadeUp 0.6s ease forwards;
+    }
+
+    .hero-content > *:nth-child(1) { animation-delay: 0.1s; }
+    .hero-content > *:nth-child(2) { animation-delay: 0.2s; }
+    .hero-content > *:nth-child(3) { animation-delay: 0.3s; }
+    .hero-content > *:nth-child(4) { animation-delay: 0.4s; }
+
+    .hero-video-wrap {
+      opacity: 0;
+      animation: fadeUp 0.7s ease 0.35s forwards;
+    }
+
+    /* ── RESPONSIVE ── */
+    @media (max-width: 900px) {
+      .hero {
+        grid-template-columns: 1fr;
+        gap: 40px;
+        padding-top: 100px;
+        text-align: center;
+      }
+
+      .hero-sub { max-width: 100%; }
+
+      .hero-actions { justify-content: center; }
+
+      .hero-eyebrow { margin: 0 auto 24px; }
+
+      .for-grid { grid-template-columns: 1fr; }
+
+      nav .nav-links { display: none; }
+    }
+
+    @media (max-width: 600px) {
+      .stats-inner { gap: 32px; }
+      .for-card { padding: 28px; }
+      footer { flex-direction: column; align-items: flex-start; }
+    }
+  </style>
 </head>
 <body>
 
-<h1>SalesExchange by Inside Sales Manager (ISM)</h1>
-<h2>Turn Conversations into Commissions.</h2>
+<!-- NAV -->
+<nav>
+  <a href="/" class="nav-logo">Sales<span>Exchange</span></a>
+  <ul class="nav-links">
+    <li><a href="#for-reps">For Reps</a></li>
+    <li><a href="#for-companies">For Companies</a></li>
+    <li><a href="/support">Support</a></li>
+    <li><a href="/download" class="nav-cta">Download App</a></li>
+  </ul>
+</nav>
 
-<p>
-SalesExchange connects companies with motivated sales reps through
-real opportunities that support referral fees and commissions.
-</p>
+<!-- HERO -->
+<section aria-label="Hero">
+  <div class="hero">
 
-<h3>For Sales Reps</h3>
-<ul>
-  <li>Browse and request real sales opportunities</li>
-  <li>Message companies inside the app</li>
-  <li>Track opportunity status</li>
-  <li>Earn referral fees or commissions</li>
-</ul>
+    <div class="hero-content">
+      <div class="hero-eyebrow">Commission-only sales talent</div>
+      <h1>Turn <em>Conversations</em> into Commissions.</h1>
+      <p class="hero-sub">
+        SalesExchange connects startups and companies with motivated,
+        performance-based sales reps — no base salary, no overhead.
+        Just results.
+      </p>
+      <div class="hero-actions">
+        <a href="/download" class="btn-primary">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2z"/><path d="M10 8l6 4-6 4V8z" fill="currentColor" stroke="none"/></svg>
+          Download the App
+        </a>
+        <a href="#how-it-works" class="btn-secondary">See how it works</a>
+      </div>
+    </div>
 
-<h3>For Companies</h3>
-<ul>
-  <li>Post sales opportunities</li>
-  <li>Engage interested reps</li>
-  <li>Control terms and visibility</li>
-  <li>Expand coverage without hiring full-time staff</li>
-</ul>
+    <div class="hero-video-wrap">
+      <span class="video-badge">Watch the Intro</span>
+      <div class="video-card" id="videoCard">
 
-<p>
-<a href="/support">Support</a> ·
-<a href="/privacy">Privacy</a> ·
-<a href="/terms">Terms</a> .
-<a href="/download">Download</a>
-</p>
+        <iframe
+          src="https://app.heygen.com/embeds/b5635214d4a1440ba9b8809842d02902"
+          title="SalesExchange - Intro Video"
+          frameborder="0"
+          allow="encrypted-media; fullscreen;"
+          allowfullscreen
+          style="position:absolute;inset:0;width:100%;height:100%;"
+        ></iframe>
+
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- STATS STRIP -->
+<div class="stats-strip">
+  <div class="stats-inner">
+    <div class="stat-item">
+      <span class="stat-num">100<span>%</span></span>
+      <div class="stat-label">Performance-based pay</div>
+    </div>
+    <div class="stat-item">
+      <span class="stat-num">$<span>0</span></span>
+      <div class="stat-label">Base salary required</div>
+    </div>
+    <div class="stat-item">
+      <span class="stat-num">2<span>-sided</span></span>
+      <div class="stat-label">Marketplace for sales talent</div>
+    </div>
+    <div class="stat-item">
+      <span class="stat-num">∞</span>
+      <div class="stat-label">Sales coverage potential</div>
+    </div>
+  </div>
+</div>
+
+<!-- FOR REPS & COMPANIES -->
+<section class="for-section" id="how-it-works" aria-label="For reps and companies">
+  <div class="section-eyebrow">How it works</div>
+  <h2 class="section-title">Built for both sides<br>of the deal.</h2>
+
+  <div class="for-grid">
+
+    <div class="for-card" id="for-reps">
+      <span class="for-card-tag tag-reps">For Sales Reps</span>
+      <h3>Find opportunities.<br>Earn on performance.</h3>
+      <ul>
+        <li>Browse and request real sales opportunities</li>
+        <li>Message companies directly inside the app</li>
+        <li>Track your opportunity status in real time</li>
+        <li>Earn referral fees or commissions</li>
+      </ul>
+    </div>
+
+    <div class="for-card" id="for-companies">
+      <span class="for-card-tag tag-companies">For Companies</span>
+      <h3>Expand your reach.<br>Pay for results only.</h3>
+      <ul>
+        <li>Post sales opportunities in minutes</li>
+        <li>Engage motivated, interested reps</li>
+        <li>Control your terms and visibility</li>
+        <li>Expand coverage without hiring full-time staff</li>
+      </ul>
+    </div>
+
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <a href="/" class="footer-logo">Sales<span>Exchange</span></a>
+  <ul class="footer-links">
+    <li><a href="/support">Support</a></li>
+    <li><a href="/privacy">Privacy</a></li>
+    <li><a href="/terms">Terms</a></li>
+    <li><a href="/download">Download</a></li>
+  </ul>
+</footer>
+
+
 
 </body>
 </html>
